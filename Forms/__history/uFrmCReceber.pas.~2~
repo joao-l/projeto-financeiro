@@ -1,0 +1,38 @@
+unit uFrmCReceber;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls, Mask, DBCtrls;
+
+type
+  TFrmContasReceber = class(TFrmBase)
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmContasReceber: TFrmContasReceber;
+
+implementation
+
+uses uDM;
+
+{$R *.dfm}
+
+end.

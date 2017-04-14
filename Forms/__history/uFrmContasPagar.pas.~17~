@@ -1,0 +1,70 @@
+unit uFrmContasPagar;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls, Mask, DBCtrls;
+
+type
+  TFrmContasPagar = class(TFrmBase)
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    Label6: TLabel;
+    DBEdit6: TDBEdit;
+    gpPeriodo: TGroupBox;
+    Label8: TLabel;
+    Label9: TLabel;
+    edtPeriodoFinal: TMaskEdit;
+    edtPeriodoInicial: TMaskEdit;
+    Pesquisar: TButton;
+    btnLimparFiltros: TButton;
+    Label7: TLabel;
+    cbPessoas: TDBLookupComboBox;
+    Label2: TLabel;
+    cbTipo: TComboBox;
+    procedure PesquisarClick(Sender: TObject);
+    procedure btnLimparFiltrosClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmContasPagar: TFrmContasPagar;
+
+implementation
+
+uses uDM, uFuncoes;
+
+{$R *.dfm}
+
+procedure TFrmContasPagar.btnLimparFiltrosClick(Sender: TObject);
+begin
+  inherited;
+  LimparPesquisas(DS);
+end;
+
+procedure TFrmContasPagar.BtnSalvarClick(Sender: TObject);
+begin
+  DS.DataSet.FieldByName('TIPOTITULO').Value := String(cbTipo.Items.GetText);
+  inherited;
+end;
+
+procedure TFrmContasPagar.PesquisarClick(Sender: TObject);
+begin
+  inherited;
+  PesquisaPorDataCriacao(DS, 'DTCRIACAO', edtPeriodoInicial.Text, edtPeriodoFinal.Text);
+  LimparCamposPeriodo(edtPeriodoInicial, edtPeriodoFinal, edtValor);
+end;
+
+end.

@@ -1,0 +1,25 @@
+unit uFrmTitulos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls;
+
+type
+  TFrmTitulos = class(TFrmBase)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmTitulos: TFrmTitulos;
+
+implementation
+
+{$R *.dfm}
+
+end.

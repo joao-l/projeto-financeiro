@@ -1,0 +1,78 @@
+unit uFrmContasReceber;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls, Mask, DBCtrls;
+
+type
+  TFrmContasReceber = class(TFrmBase)
+    Label1: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    Label5: TLabel;
+    DBEdit4: TDBEdit;
+    Label6: TLabel;
+    DBEdit5: TDBEdit;
+    Label7: TLabel;
+    gpPeriodo: TGroupBox;
+    Label8: TLabel;
+    Label9: TLabel;
+    edtPeriodoFinal: TMaskEdit;
+    edtPeriodoInicial: TMaskEdit;
+    Pesquisar: TButton;
+    btnLimparFiltros: TButton;
+    cbTipo: TComboBox;
+    procedure btnLimparFiltrosClick(Sender: TObject);
+    procedure PesquisarClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure DBEdit3KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmContasReceber: TFrmContasReceber;
+
+implementation
+
+uses uDM, uFuncoes;
+
+{$R *.dfm}
+
+procedure TFrmContasReceber.btnLimparFiltrosClick(Sender: TObject);
+begin
+  inherited;
+  LimparPesquisas(DS);
+  LimparCamposPeriodo(edtPeriodoInicial, edtPeriodoFinal, edtValor);
+end;
+
+procedure TFrmContasReceber.BtnSalvarClick(Sender: TObject);
+begin
+  DS.DataSet.FieldByName('TIPOTITULO').Value := String(cbTipo.Items.GetText);
+  inherited;
+end;
+
+procedure TFrmContasReceber.DBEdit3KeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if not( key in['0'..'9',#08] ) then
+    key:=#0;
+end;
+
+procedure TFrmContasReceber.PesquisarClick(Sender: TObject);
+begin
+  inherited;
+  PesquisaPorDataCriacao(DS, 'DTCRIACAO', edtPeriodoInicial.Text, edtPeriodoFinal.Text);
+end;
+
+end.

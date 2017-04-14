@@ -1,0 +1,42 @@
+unit uBaseTitulos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids, ComCtrls,
+  StdCtrls, ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    BtnNovo: TButton;
+    BtnApagar: TButton;
+    BtnSair: TButton;
+    StatusInfo: TStatusBar;
+    DBGDados: TDBGrid;
+    PNDados: TPanel;
+    BtnCancelar: TSpeedButton;
+    BtnSalvar: TSpeedButton;
+    aclComandos: TActionList;
+    ACNovo: TAction;
+    ACEditar: TAction;
+    ACApagar: TAction;
+    ACSair: TAction;
+    ImgAcoes: TImageList;
+    DS: TDataSource;
+    Validar: TValidar;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.

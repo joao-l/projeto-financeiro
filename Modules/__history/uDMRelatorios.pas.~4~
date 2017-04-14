@@ -1,0 +1,31 @@
+unit uDMRelatorios;
+
+interface
+
+uses
+  SysUtils, Classes, FMTBcd, RpBase, RpSystem, RpRave, RpDefine, RpCon, RpConDS,
+  DBClient, Provider, DB, SqlExpr, uDM;
+
+type
+  TDataModule1 = class(TDataModule)
+    sdsContasReceber: TSQLDataSet;
+    dspContasReceber: TDataSetProvider;
+    cdsContasReceber: TClientDataSet;
+    RvDataSetConnection1: TRvDataSetConnection;
+    RvProject1: TRvProject;
+    RvSystem1: TRvSystem;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+
+{$R *.dfm}
+
+end.

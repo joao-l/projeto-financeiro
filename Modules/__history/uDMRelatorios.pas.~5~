@@ -1,0 +1,43 @@
+unit uDMRelatorios;
+
+interface
+
+uses
+  SysUtils, Classes, FMTBcd, RpBase, RpSystem, RpRave, RpDefine, RpCon, RpConDS,
+  DBClient, Provider, DB, SqlExpr, uDM;
+
+type
+  TDataModule1 = class(TDataModule)
+    sdsContasReceber: TSQLDataSet;
+    dspContasReceber: TDataSetProvider;
+    cdsContasReceber: TClientDataSet;
+    rvDSConnectionContasReceber: TRvDataSetConnection;
+    RvProject1: TRvProject;
+    RvSystem1: TRvSystem;
+    cdsContasReceberID: TIntegerField;
+    cdsContasReceberDTCRIACAO: TDateField;
+    cdsContasReceberDTVENCIMENTO: TDateField;
+    cdsContasReceberVALORTITULO: TFMTBCDField;
+    cdsContasReceberVALORJUROS: TFMTBCDField;
+    cdsContasReceberVLJUROSCALCULADO: TFMTBCDField;
+    cdsContasReceberVALORDESCONTO: TFMTBCDField;
+    cdsContasReceberDTPAGAMENTO: TDateField;
+    cdsContasReceberVALORPAGO: TFMTBCDField;
+    cdsContasReceberTIPOTITULO: TStringField;
+    cdsContasReceberCNPJCPF: TStringField;
+    cdsContasReceberNUMTITULO: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+
+{$R *.dfm}
+
+end.

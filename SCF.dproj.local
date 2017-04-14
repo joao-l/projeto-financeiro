@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/04/07 09:55:10.567.pas,C:\Users\User001\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uPrincipal.pas</Transaction>
+    <Transaction>2017/04/07 09:55:10.567.dfm,C:\Users\User001\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uPrincipal.dfm</Transaction>
+    <Transaction>2017/04/07 09:55:27.778.dproj,C:\Users\User001\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\User001\Downloads\Financeiro\App\SCF.dproj</Transaction>
+    <Transaction>2017/04/07 10:31:25.121.pas,C:\Users\User001\Downloads\Financeiro\App\Unit2.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\Unit2.pas</Transaction>
+    <Transaction>2017/04/07 10:31:25.121.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit2.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\Unit2.dfm</Transaction>
+    <Transaction>2017/04/07 11:25:31.686.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\Unit2.pas=</Transaction>
+    <Transaction>2017/04/07 11:25:31.686.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\Unit2.dfm=</Transaction>
+    <Transaction>2017/04/07 11:32:46.916.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uBase.pas</Transaction>
+    <Transaction>2017/04/07 11:32:46.916.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uBase.dfm</Transaction>
+    <Transaction>2017/04/07 15:47:17.205.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Modules\uDM.pas</Transaction>
+    <Transaction>2017/04/07 15:47:17.205.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Modules\uDM.dfm</Transaction>
+    <Transaction>2017/04/08 13:33:16.583.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmPessoas.pas</Transaction>
+    <Transaction>2017/04/08 13:33:16.583.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmPessoas.dfm</Transaction>
+    <Transaction>2017/04/08 18:16:26.557.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulos.pas</Transaction>
+    <Transaction>2017/04/08 18:16:26.557.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulos.dfm</Transaction>
+    <Transaction>2017/04/09 00:10:27.378.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulos.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulosPagar.pas</Transaction>
+    <Transaction>2017/04/09 00:10:27.378.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulos.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulosPagar.dfm</Transaction>
+    <Transaction>2017/04/09 00:14:53.926.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseTitulos.pas</Transaction>
+    <Transaction>2017/04/09 00:14:53.926.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseTitulos.dfm</Transaction>
+    <Transaction>2017/04/09 00:18:18.147.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseTitulos.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseContas.pas</Transaction>
+    <Transaction>2017/04/09 00:18:18.147.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseTitulos.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseContas.dfm</Transaction>
+    <Transaction>2017/04/09 00:26:06.628.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulosPagar.pas=</Transaction>
+    <Transaction>2017/04/09 00:26:06.628.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmTitulosPagar.dfm=</Transaction>
+    <Transaction>2017/04/09 00:36:44.582.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasPagar.pas</Transaction>
+    <Transaction>2017/04/09 00:36:44.582.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasPagar.dfm</Transaction>
+    <Transaction>2017/04/09 00:53:54.958.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCPagar.pas</Transaction>
+    <Transaction>2017/04/09 00:53:54.958.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCPagar.dfm</Transaction>
+    <Transaction>2017/04/09 01:05:40.553.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseContas.pas=</Transaction>
+    <Transaction>2017/04/09 01:05:40.553.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uBaseContas.dfm=</Transaction>
+    <Transaction>2017/04/09 01:05:40.574.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasPagar.pas=</Transaction>
+    <Transaction>2017/04/09 01:05:40.574.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasPagar.dfm=</Transaction>
+    <Transaction>2017/04/09 09:42:42.857.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Unit\uFuncoes.pas</Transaction>
+    <Transaction>2017/04/09 19:00:43.658.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCReceber.pas</Transaction>
+    <Transaction>2017/04/09 19:00:43.658.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCReceber.dfm</Transaction>
+    <Transaction>2017/04/11 10:10:49.974.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCReceber.pas=</Transaction>
+    <Transaction>2017/04/11 10:10:49.974.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCReceber.dfm=</Transaction>
+    <Transaction>2017/04/11 10:11:19.356.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCPagar.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContas.pas</Transaction>
+    <Transaction>2017/04/11 10:11:19.356.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmCPagar.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContas.dfm</Transaction>
+    <Transaction>2017/04/11 12:05:40.525.pas,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContas.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasPagar.pas</Transaction>
+    <Transaction>2017/04/11 12:05:40.525.dfm,C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContas.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasPagar.dfm</Transaction>
+    <Transaction>2017/04/11 12:14:40.999.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasReceber.pas</Transaction>
+    <Transaction>2017/04/11 12:14:40.999.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmContasReceber.dfm</Transaction>
+    <Transaction>2017/04/11 14:19:30.191.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmPagamentoContas.pas</Transaction>
+    <Transaction>2017/04/11 14:19:30.191.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Forms\uFrmPagamentoContas.dfm</Transaction>
+    <Transaction>2017/04/12 07:06:27.911.pas,C:\Users\User001\Downloads\Financeiro\App\Unit1.pas=C:\Users\User001\Downloads\Financeiro\App\Modules\uDMRelatorios.pas</Transaction>
+    <Transaction>2017/04/12 07:06:27.911.dfm,C:\Users\User001\Downloads\Financeiro\App\Unit1.dfm=C:\Users\User001\Downloads\Financeiro\App\Modules\uDMRelatorios.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Forms"/>
+    <File Path="Forms\uBase.pas"/>
+    <File Path="Forms\uBase.dfm"/>
+    <File Path="Forms\uPrincipal.pas"/>
+    <File Path="Forms\uPrincipal.dfm"/>
+    <File Path="Forms\uFrmContasReceber.pas"/>
+    <File Path="Forms\uFrmContasReceber.dfm"/>
+    <File Path="Forms\uFrmContasPagar.pas"/>
+    <File Path="Forms\uFrmContasPagar.dfm"/>
+    <File Path="Forms\uFrmPessoas.pas"/>
+    <File Path="Forms\uFrmPessoas.dfm"/>
+    <File Path="Forms\uFrmPagamentoContas.pas"/>
+    <File Path="Forms\uFrmPagamentoContas.dfm"/>
+    <File Path="Modules"/>
+    <File Path="Modules\uDM.pas"/>
+    <File Path="Modules\uDM.dfm"/>
+    <File Path="Modules\uDMRelatorios.pas"/>
+    <File Path="Modules\uDMRelatorios.dfm"/>
+    <File Path="Unit"/>
+    <File Path="Unit\uFuncoes.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>

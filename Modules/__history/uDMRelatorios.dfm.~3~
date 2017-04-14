@@ -1,0 +1,104 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 437
+  Width = 563
+  object sdsContasReceber: TSQLDataSet
+    SchemaName = 'root'
+    CommandText = 'SELECT * FROM titulos WHERE TIPOTITULO = '#39'R'#39
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DM.SQLCon
+    Left = 464
+    Top = 336
+  end
+  object dspContasReceber: TDataSetProvider
+    DataSet = sdsContasReceber
+    Left = 464
+    Top = 280
+  end
+  object cdsContasReceber: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspContasReceber'
+    Left = 464
+    Top = 232
+    object cdsContasReceberID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object cdsContasReceberDTCRIACAO: TDateField
+      FieldName = 'DTCRIACAO'
+    end
+    object cdsContasReceberDTVENCIMENTO: TDateField
+      FieldName = 'DTVENCIMENTO'
+    end
+    object cdsContasReceberVALORTITULO: TFMTBCDField
+      FieldName = 'VALORTITULO'
+      Required = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberVALORJUROS: TFMTBCDField
+      FieldName = 'VALORJUROS'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberVLJUROSCALCULADO: TFMTBCDField
+      FieldName = 'VLJUROSCALCULADO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberVALORDESCONTO: TFMTBCDField
+      FieldName = 'VALORDESCONTO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberDTPAGAMENTO: TDateField
+      FieldName = 'DTPAGAMENTO'
+    end
+    object cdsContasReceberVALORPAGO: TFMTBCDField
+      FieldName = 'VALORPAGO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberTIPOTITULO: TStringField
+      FieldName = 'TIPOTITULO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object cdsContasReceberCNPJCPF: TStringField
+      FieldName = 'CNPJCPF'
+      Required = True
+    end
+    object cdsContasReceberNUMTITULO: TStringField
+      FieldName = 'NUMTITULO'
+      Size = 45
+    end
+  end
+  object rvDSConnectionContasReceber: TRvDataSetConnection
+    RuntimeVisibility = rtDeveloper
+    DataSet = cdsContasReceber
+    Left = 464
+    Top = 192
+  end
+  object RvProject1: TRvProject
+    Left = 16
+    Top = 16
+  end
+  object RvSystem1: TRvSystem
+    TitleSetup = 'Output Options'
+    TitleStatus = 'Report Status'
+    TitlePreview = 'Report Preview'
+    SystemFiler.StatusFormat = 'Generating page %p'
+    SystemPreview.ZoomFactor = 100.000000000000000000
+    SystemPrinter.ScaleX = 100.000000000000000000
+    SystemPrinter.ScaleY = 100.000000000000000000
+    SystemPrinter.StatusFormat = 'Printing page %p'
+    SystemPrinter.Title = 'Rave Report'
+    SystemPrinter.UnitsFactor = 1.000000000000000000
+    Left = 80
+    Top = 16
+  end
+end

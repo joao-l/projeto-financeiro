@@ -1,0 +1,254 @@
+inherited FrmPessoas: TFrmPessoas
+  Caption = 'CFC - Cadastro de Pessoas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited DBGDados: TDBGrid
+    Top = 305
+    Height = 169
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Visible = False
+      end
+      item
+        Expanded = False
+        FieldName = 'NOME'
+        ReadOnly = True
+        Title.Caption = 'Nome'
+        Width = 200
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CNPJCPF'
+        Title.Caption = 'CPF/CNPJ'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DTNASCIMENTO'
+        Title.Caption = 'Data Nascimento'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CIDADE'
+        Title.Caption = 'Cidade'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ESTADO'
+        Title.Caption = 'Estado'
+        Width = 50
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'BAIRRO'
+        Title.Caption = 'Bairro'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NUMERO'
+        Title.Caption = 'Numero'
+        Width = 50
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CEP'
+        Width = 100
+        Visible = True
+      end>
+  end
+  inherited PNDados: TPanel
+    Height = 268
+    ExplicitLeft = 0
+    ExplicitTop = 43
+    ExplicitHeight = 268
+    inherited BtnCancelar: TSpeedButton
+      Left = 203
+      Top = 229
+      Height = 31
+      ExplicitLeft = 203
+      ExplicitTop = 229
+      ExplicitHeight = 31
+    end
+    inherited BtnSalvar: TSpeedButton
+      Left = 286
+      Top = 229
+      Height = 31
+      ExplicitLeft = 286
+      ExplicitTop = 229
+      ExplicitHeight = 31
+    end
+    object Label1: TLabel
+      Left = 8
+      Top = 48
+      Width = 52
+      Height = 13
+      Caption = 'CPF/CNPJ:'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel
+      Left = 8
+      Top = 8
+      Width = 31
+      Height = 13
+      Caption = 'Nome:'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel
+      Left = 264
+      Top = 48
+      Width = 100
+      Height = 13
+      Caption = 'Data de Nascimento:'
+      FocusControl = DBEdit3
+    end
+    object Label5: TLabel
+      Left = 8
+      Top = 96
+      Width = 59
+      Height = 13
+      Caption = 'Logradouro:'
+      FocusControl = DBEdit5
+    end
+    object Label4: TLabel
+      Left = 8
+      Top = 139
+      Width = 32
+      Height = 13
+      Caption = 'Bairro:'
+      FocusControl = DBEdit4
+    end
+    object Label6: TLabel
+      Left = 264
+      Top = 139
+      Width = 41
+      Height = 13
+      Caption = 'Numero:'
+      FocusControl = DBEdit6
+    end
+    object Label7: TLabel
+      Left = 8
+      Top = 184
+      Width = 37
+      Height = 13
+      Caption = 'Cidade:'
+      FocusControl = DBEdit7
+    end
+    object Label10: TLabel
+      Left = 264
+      Top = 184
+      Width = 37
+      Height = 13
+      Caption = 'Estado:'
+      FocusControl = DBEdit10
+    end
+    object Label8: TLabel
+      Left = 264
+      Top = 96
+      Width = 23
+      Height = 13
+      Caption = 'CEP:'
+      FocusControl = DBEdit8
+    end
+    object DBEdit1: TDBEdit
+      Left = 8
+      Top = 64
+      Width = 246
+      Height = 21
+      DataField = 'CNPJCPF'
+      DataSource = DS
+      MaxLength = 14
+      TabOrder = 1
+    end
+    object DBEdit2: TDBEdit
+      Left = 8
+      Top = 21
+      Width = 352
+      Height = 21
+      DataField = 'NOME'
+      DataSource = DS
+      TabOrder = 0
+    end
+    object DBEdit3: TDBEdit
+      Left = 264
+      Top = 64
+      Width = 96
+      Height = 21
+      DataField = 'DTNASCIMENTO'
+      DataSource = DS
+      MaxLength = 10
+      TabOrder = 2
+    end
+    object DBEdit5: TDBEdit
+      Left = 8
+      Top = 112
+      Width = 246
+      Height = 21
+      DataField = 'LOGRADOURO'
+      DataSource = DS
+      TabOrder = 3
+    end
+    object DBEdit4: TDBEdit
+      Left = 8
+      Top = 155
+      Width = 246
+      Height = 21
+      DataField = 'BAIRRO'
+      DataSource = DS
+      TabOrder = 5
+    end
+    object DBEdit6: TDBEdit
+      Left = 264
+      Top = 155
+      Width = 96
+      Height = 21
+      DataField = 'NUMERO'
+      DataSource = DS
+      TabOrder = 6
+    end
+    object DBEdit7: TDBEdit
+      Left = 8
+      Top = 200
+      Width = 246
+      Height = 21
+      DataField = 'CIDADE'
+      DataSource = DS
+      TabOrder = 7
+    end
+    object DBEdit10: TDBEdit
+      Left = 264
+      Top = 200
+      Width = 96
+      Height = 21
+      DataField = 'ESTADO'
+      DataSource = DS
+      TabOrder = 8
+    end
+    object DBEdit8: TDBEdit
+      Left = 264
+      Top = 112
+      Width = 96
+      Height = 21
+      DataField = 'CEP'
+      DataSource = DS
+      TabOrder = 4
+    end
+  end
+  inherited DS: TDataSource
+    DataSet = DM.cdsPessoas
+    Left = 480
+  end
+  inherited Validar: TValidar
+    DataSet = DS
+  end
+end

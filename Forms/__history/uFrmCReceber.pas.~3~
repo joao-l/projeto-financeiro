@@ -1,0 +1,36 @@
+unit uFrmCReceber;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls, Mask, DBCtrls;
+
+type
+  TFrmContasReceber = class(TFrmBase)
+    Label2: TLabel;
+    cbPessoas: TComboBox;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmContasReceber: TFrmContasReceber;
+
+implementation
+
+uses uDM;
+
+{$R *.dfm}
+
+procedure TFrmContasReceber.FormShow(Sender: TObject);
+begin
+  inherited;
+  LoadListPessoas(cbPessoas);
+end;
+
+end.

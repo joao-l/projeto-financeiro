@@ -1,0 +1,381 @@
+object DM: TDM
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 228
+  Width = 621
+  object SQLCon: TSQLConnection
+    ConnectionName = 'AppFinan'
+    DriverName = 'MYSQL'
+    GetDriverFunc = 'getSQLDriverMYSQL'
+    LibraryName = 'dbxmys.dll'
+    LoadParamsOnConnect = True
+    LoginPrompt = False
+    Params.Strings = (
+      'drivername=MYSQL'
+      'blobsize=-1'
+      'Database=finanApp'
+      'HostName=localhost'
+      'localecode=0000'
+      'Password=root'
+      'User_Name=root'
+      'compressed=False'
+      'encrypted=False'
+      'Port=3306')
+    VendorLib = 'libmysql.dll'
+    Connected = True
+    Left = 24
+    Top = 72
+  end
+  object sdsPessoas: TSQLDataSet
+    SchemaName = 'root'
+    CommandText = 'SELECT * FROM pessoas'
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = SQLCon
+    Left = 560
+    Top = 104
+    object sdsPessoasID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object sdsPessoasCNPJCPF: TStringField
+      FieldName = 'CNPJCPF'
+      Required = True
+    end
+    object sdsPessoasNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 125
+    end
+    object sdsPessoasDTNASCIMENTO: TDateField
+      FieldName = 'DTNASCIMENTO'
+    end
+    object sdsPessoasCEP: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+    object sdsPessoasLOGRADOURO: TStringField
+      FieldName = 'LOGRADOURO'
+      Size = 45
+    end
+    object sdsPessoasNUMERO: TStringField
+      FieldName = 'NUMERO'
+      Size = 10
+    end
+    object sdsPessoasBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Size = 45
+    end
+    object sdsPessoasCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 45
+    end
+    object sdsPessoasESTADO: TStringField
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object dspPessoas: TDataSetProvider
+    DataSet = sdsPessoas
+    Left = 560
+    Top = 56
+  end
+  object cdsPessoas: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspPessoas'
+    Left = 560
+    Top = 8
+    object cdsPessoasID: TIntegerField
+      DisplayLabel = 'ID Pessoas'
+      DisplayWidth = 7
+      FieldName = 'ID'
+    end
+    object cdsPessoasCNPJCPF: TStringField
+      DisplayLabel = 'CPF/CNPJ'
+      DisplayWidth = 24
+      FieldName = 'CNPJCPF'
+      Required = True
+      EditMask = '999.999.999-99;0;_'
+    end
+    object cdsPessoasNOME: TStringField
+      DisplayLabel = 'Nome'
+      DisplayWidth = 150
+      FieldName = 'NOME'
+      Required = True
+      Size = 125
+    end
+    object cdsPessoasDTNASCIMENTO: TDateField
+      DisplayLabel = 'Data Nascimento'
+      DisplayWidth = 16
+      FieldName = 'DTNASCIMENTO'
+      EditMask = '!99/99/9999;1;_'
+    end
+    object cdsPessoasCEP: TStringField
+      DisplayWidth = 10
+      FieldName = 'CEP'
+      Size = 8
+    end
+    object cdsPessoasLOGRADOURO: TStringField
+      DisplayLabel = 'Logradouro'
+      DisplayWidth = 54
+      FieldName = 'LOGRADOURO'
+      Size = 45
+    end
+    object cdsPessoasNUMERO: TStringField
+      DisplayLabel = 'Numero'
+      DisplayWidth = 12
+      FieldName = 'NUMERO'
+      Size = 10
+    end
+    object cdsPessoasBAIRRO: TStringField
+      DisplayLabel = 'Bairro'
+      DisplayWidth = 54
+      FieldName = 'BAIRRO'
+      Size = 45
+    end
+    object cdsPessoasCIDADE: TStringField
+      DisplayLabel = 'Cidade'
+      DisplayWidth = 54
+      FieldName = 'CIDADE'
+      Size = 45
+    end
+    object cdsPessoasESTADO: TStringField
+      DisplayLabel = 'Estado'
+      DisplayWidth = 8
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object cdsContasPagar: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspContasPagar'
+    Left = 448
+    Top = 8
+    object cdsContasPagarID: TIntegerField
+      FieldName = 'ID'
+    end
+    object cdsContasPagarDTCRIACAO: TDateField
+      DisplayLabel = 'Data Emiss'#227'o'
+      FieldName = 'DTCRIACAO'
+      EditMask = '!99/99/9999;1;_'
+    end
+    object cdsContasPagarDTVENCIMENTO: TDateField
+      DisplayLabel = 'Data Vencimento'
+      FieldName = 'DTVENCIMENTO'
+      EditMask = '!99/99/9999;1;_'
+    end
+    object cdsContasPagarVALORTITULO: TFMTBCDField
+      DisplayLabel = 'Valor'
+      FieldName = 'VALORTITULO'
+      Required = True
+      currency = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasPagarVALORJUROS: TFMTBCDField
+      DisplayLabel = 'Juros'
+      FieldName = 'VALORJUROS'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasPagarVLJUROSCALCULADO: TFMTBCDField
+      DisplayLabel = 'Juros Sugerido'
+      FieldName = 'VLJUROSCALCULADO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasPagarVALORDESCONTO: TFMTBCDField
+      DisplayLabel = 'Desconto'
+      FieldName = 'VALORDESCONTO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasPagarDTPAGAMENTO: TDateField
+      DisplayLabel = 'Data Pagamento'
+      FieldName = 'DTPAGAMENTO'
+      EditMask = '!99/99/9999;1;_'
+    end
+    object cdsContasPagarVALORPAGO: TFMTBCDField
+      DisplayLabel = 'Valor Pago'
+      FieldName = 'VALORPAGO'
+      currency = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasPagarTIPOTITULO: TStringField
+      DisplayLabel = 'Tipo T'#237'tulo'
+      FieldName = 'TIPOTITULO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object cdsContasPagarCNPJCPF: TStringField
+      DisplayLabel = 'CPF/CNPJ'
+      FieldName = 'CNPJCPF'
+      Required = True
+    end
+    object cdsContasPagarNUMTITULO: TStringField
+      DisplayLabel = 'N'#250'mero T'#237'tulo'
+      FieldName = 'NUMTITULO'
+      Required = True
+      Size = 45
+    end
+    object cdsContasPagarListPessoas: TStringField
+      DisplayLabel = 'T'#237'tular'
+      FieldKind = fkLookup
+      FieldName = 'ListPessoas'
+      LookupDataSet = cdsPessoas
+      LookupKeyFields = 'CNPJCPF'
+      LookupResultField = 'NOME'
+      KeyFields = 'CNPJCPF'
+      Lookup = True
+    end
+  end
+  object dspContasPagar: TDataSetProvider
+    DataSet = sdsContasPagar
+    Left = 448
+    Top = 56
+  end
+  object sdsContasPagar: TSQLDataSet
+    SchemaName = 'root'
+    CommandText = 'SELECT * FROM titulos WHERE TIPOTITULO = '#39'P'#39
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = SQLCon
+    Left = 448
+    Top = 104
+  end
+  object sdsContasReceber: TSQLDataSet
+    SchemaName = 'root'
+    CommandText = 'SELECT * FROM titulos WHERE TIPOTITULO = '#39'R'#39
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = SQLCon
+    Left = 310
+    Top = 104
+  end
+  object dspContasReceber: TDataSetProvider
+    DataSet = sdsContasReceber
+    Left = 311
+    Top = 56
+  end
+  object cdsContasReceber: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspContasReceber'
+    Left = 312
+    Top = 8
+  end
+  object sdsPagamentoContas: TSQLDataSet
+    SchemaName = 'root'
+    CommandText = 'SELECT * FROM titulos WHERE DTPAGAMENTO IS NULL'
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = SQLCon
+    Left = 160
+    Top = 104
+  end
+  object dspPagamentoContas: TDataSetProvider
+    DataSet = sdsPagamentoContas
+    Left = 160
+    Top = 56
+  end
+  object cdsPagamentoContas: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspPagamentoContas'
+    Left = 160
+    Top = 8
+    object cdsPagamentoContasNUMTITULO: TIntegerField
+      DisplayLabel = 'N'#250'mero T'#237'tulo'
+      FieldName = 'NUMTITULO'
+      Required = True
+    end
+    object cdsPagamentoContasDTCRIACAO: TDateField
+      DisplayLabel = 'Data Emiss'#227'o'
+      FieldName = 'DTCRIACAO'
+      EditMask = '!99/99/9999;1;_'
+    end
+    object cdsPagamentoContasDTVENCIMENTO: TDateField
+      DisplayLabel = 'Data Vencimento'
+      FieldName = 'DTVENCIMENTO'
+      EditMask = '!99/99/9999;1;_'
+    end
+    object cdsPagamentoContasVALORTITULO: TFMTBCDField
+      DisplayLabel = 'Valor T'#237'tulo'
+      FieldName = 'VALORTITULO'
+      Required = True
+      currency = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsPagamentoContasVALORJUROS: TFMTBCDField
+      DisplayLabel = 'Valor Juros'
+      FieldName = 'VALORJUROS'
+      Required = True
+      currency = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsPagamentoContasVLJUROSCALCULADO: TFMTBCDField
+      DisplayLabel = 'Juros Calculado'
+      FieldName = 'VLJUROSCALCULADO'
+      Required = True
+      currency = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsPagamentoContasVALORDESCONTO: TFMTBCDField
+      DisplayLabel = 'Valor Desconto'
+      FieldName = 'VALORDESCONTO'
+      Required = True
+      currency = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsPagamentoContasDTPAGAMENTO: TDateField
+      DisplayLabel = 'Data Pagamento'
+      FieldName = 'DTPAGAMENTO'
+      Required = True
+      EditMask = '!99/99/9999;1;_'
+    end
+    object cdsPagamentoContasVALORPAGO: TFMTBCDField
+      DisplayLabel = 'Valor Pago'
+      FieldName = 'VALORPAGO'
+      Required = True
+      currency = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsPagamentoContasTIPOTITULO: TStringField
+      DisplayLabel = 'Tipo T'#237'tulo'
+      FieldName = 'TIPOTITULO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object cdsPagamentoContasCNPJCPF: TStringField
+      DisplayLabel = 'CPF/CNPJ'
+      FieldName = 'CNPJCPF'
+      Required = True
+    end
+    object cdsPagamentoContasListPessoas: TStringField
+      DisplayLabel = 'T'#237'tular'
+      FieldKind = fkLookup
+      FieldName = 'ListPessoas'
+      LookupDataSet = cdsPessoas
+      LookupKeyFields = 'CNPJCPF'
+      LookupResultField = 'NOME'
+      KeyFields = 'CNPJCPF'
+      Lookup = True
+    end
+  end
+end

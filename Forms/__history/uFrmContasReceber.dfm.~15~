@@ -1,0 +1,310 @@
+inherited FrmContasReceber: TFrmContasReceber
+  Caption = 'SCF - Contas a Receber'
+  ExplicitWidth = 710
+  ExplicitHeight = 548
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Height = 141
+    ExplicitHeight = 141
+    inherited BtnNovo: TButton
+      Top = 51
+      ExplicitTop = 51
+    end
+    inherited BtnEditar: TButton
+      Top = 51
+      ExplicitTop = 51
+    end
+    inherited BtnApagar: TButton
+      Top = 51
+      ExplicitTop = 51
+    end
+    inherited BtnSair: TButton
+      Top = 51
+      ExplicitTop = 51
+    end
+    object btnLimparFiltros: TButton
+      Left = 290
+      Top = 107
+      Width = 395
+      Height = 25
+      Caption = 'Limpar Filtros de Buscas'
+      TabOrder = 5
+      OnClick = btnLimparFiltrosClick
+    end
+  end
+  inherited DBGDados: TDBGrid
+    Top = 334
+    Height = 140
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'TIPOTITULO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NUMTITULO'
+        Width = 73
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ListPessoas'
+        Width = 127
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CNPJCPF'
+        Width = 81
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DTCRIACAO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DTVENCIMENTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALORTITULO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALORJUROS'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VLJUROSCALCULADO'
+        Visible = False
+      end
+      item
+        Expanded = False
+        FieldName = 'VALORDESCONTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DTPAGAMENTO'
+        Visible = False
+      end
+      item
+        Expanded = False
+        FieldName = 'VALORPAGO'
+        Visible = False
+      end>
+  end
+  inherited PNDados: TPanel
+    Top = 141
+    Height = 193
+    ExplicitTop = 141
+    ExplicitHeight = 193
+    inherited BtnCancelar: TSpeedButton
+      Left = 346
+      Top = 66
+      Width = 134
+      ExplicitLeft = 346
+      ExplicitTop = 66
+      ExplicitWidth = 134
+    end
+    inherited BtnSalvar: TSpeedButton
+      Left = 495
+      Top = 66
+      Width = 134
+      ExplicitLeft = 495
+      ExplicitTop = 66
+      ExplicitWidth = 134
+    end
+    object Label1: TLabel
+      Left = 3
+      Top = 4
+      Width = 34
+      Height = 13
+      Caption = 'T'#237'tular:'
+      FocusControl = DBLookupComboBox1
+    end
+    object Label2: TLabel
+      Left = 182
+      Top = 84
+      Width = 85
+      Height = 13
+      Caption = 'Data Vencimento:'
+      FocusControl = DBEdit1
+    end
+    object Label3: TLabel
+      Left = 3
+      Top = 84
+      Width = 57
+      Height = 13
+      Caption = 'Valor T'#237'tulo:'
+      FocusControl = DBEdit2
+    end
+    object Label4: TLabel
+      Left = 3
+      Top = 44
+      Width = 70
+      Height = 13
+      Caption = 'N'#250'mero T'#237'tulo:'
+      FocusControl = DBEdit3
+    end
+    object Label5: TLabel
+      Left = 3
+      Top = 124
+      Width = 57
+      Height = 13
+      Caption = 'Valor Juros:'
+      FocusControl = DBEdit4
+    end
+    object Label6: TLabel
+      Left = 182
+      Top = 124
+      Width = 76
+      Height = 13
+      Caption = 'Valor Desconto:'
+      FocusControl = DBEdit5
+    end
+    object Label7: TLabel
+      Left = 182
+      Top = 44
+      Width = 53
+      Height = 13
+      Caption = 'Tipo T'#237'tulo:'
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 3
+      Top = 20
+      Width = 274
+      Height = 21
+      DataField = 'ListPessoas'
+      DataSource = DS
+      TabOrder = 0
+    end
+    object DBEdit1: TDBEdit
+      Left = 182
+      Top = 100
+      Width = 95
+      Height = 21
+      DataField = 'DTVENCIMENTO'
+      DataSource = DS
+      TabOrder = 3
+    end
+    object DBEdit2: TDBEdit
+      Left = 3
+      Top = 100
+      Width = 173
+      Height = 21
+      DataField = 'VALORTITULO'
+      DataSource = DS
+      TabOrder = 2
+    end
+    object DBEdit3: TDBEdit
+      Left = 3
+      Top = 60
+      Width = 134
+      Height = 21
+      DataField = 'NUMTITULO'
+      DataSource = DS
+      TabOrder = 1
+    end
+    object DBEdit4: TDBEdit
+      Left = 3
+      Top = 140
+      Width = 173
+      Height = 21
+      DataField = 'VALORJUROS'
+      DataSource = DS
+      TabOrder = 4
+    end
+    object DBEdit5: TDBEdit
+      Left = 182
+      Top = 140
+      Width = 95
+      Height = 21
+      DataField = 'VALORDESCONTO'
+      DataSource = DS
+      TabOrder = 5
+    end
+    object cbTipo: TComboBox
+      Left = 182
+      Top = 60
+      Width = 95
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 6
+      Text = 'R'
+      Items.Strings = (
+        'R')
+    end
+  end
+  object gpPeriodo: TGroupBox [4]
+    Left = 283
+    Top = 42
+    Width = 405
+    Height = 63
+    Caption = 'Busca por Per'#237'odo:'
+    TabOrder = 4
+    object Label8: TLabel
+      Left = 170
+      Top = 20
+      Width = 65
+      Height = 13
+      Caption = 'Per'#237'odo Final:'
+    end
+    object Label9: TLabel
+      Left = 7
+      Top = 20
+      Width = 70
+      Height = 13
+      Caption = 'Per'#237'odo Inicial:'
+    end
+    object edtPeriodoFinal: TMaskEdit
+      Left = 170
+      Top = 36
+      Width = 125
+      Height = 21
+      EditMask = '!99/99/9999;1;_'
+      MaxLength = 10
+      TabOrder = 1
+      Text = '  /  /    '
+    end
+    object edtPeriodoInicial: TMaskEdit
+      Left = 7
+      Top = 36
+      Width = 125
+      Height = 21
+      EditMask = '!99/99/9999;1;_'
+      MaxLength = 10
+      TabOrder = 0
+      Text = '  /  /    '
+    end
+    object Pesquisar: TButton
+      Left = 309
+      Top = 36
+      Width = 93
+      Height = 21
+      Caption = 'Pesquisar'
+      TabOrder = 2
+      OnClick = PesquisarClick
+    end
+  end
+  inherited DS: TDataSource
+    DataSet = DM.cdsContasReceber
+    Left = 616
+    Top = 320
+  end
+  inherited Validar: TValidar
+    Active = True
+    DataSet = DS
+    Mensagem = 'Preencha o campo'
+    Left = 656
+    Top = 320
+  end
+end

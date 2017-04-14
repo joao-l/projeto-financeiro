@@ -1,0 +1,135 @@
+unit uDM;
+
+interface
+
+uses
+  SysUtils, Classes, WideStrings, DBXMySql, FMTBcd, DBClient, Provider, DB,
+  SqlExpr;
+
+type
+  TDM = class(TDataModule)
+    SQLCon: TSQLConnection;
+    sdsPessoas: TSQLDataSet;
+    dspPessoas: TDataSetProvider;
+    cdsPessoas: TClientDataSet;
+    sdsPessoasID: TIntegerField;
+    sdsPessoasCNPJCPF: TStringField;
+    sdsPessoasNOME: TStringField;
+    sdsPessoasDTNASCIMENTO: TDateField;
+    sdsPessoasCEP: TStringField;
+    sdsPessoasLOGRADOURO: TStringField;
+    sdsPessoasNUMERO: TStringField;
+    sdsPessoasBAIRRO: TStringField;
+    sdsPessoasCIDADE: TStringField;
+    sdsPessoasESTADO: TStringField;
+    cdsPessoasID: TIntegerField;
+    cdsPessoasCNPJCPF: TStringField;
+    cdsPessoasNOME: TStringField;
+    cdsPessoasDTNASCIMENTO: TDateField;
+    cdsPessoasCEP: TStringField;
+    cdsPessoasLOGRADOURO: TStringField;
+    cdsPessoasNUMERO: TStringField;
+    cdsPessoasBAIRRO: TStringField;
+    cdsPessoasCIDADE: TStringField;
+    cdsPessoasESTADO: TStringField;
+    cdsContasPagar: TClientDataSet;
+    dspContasPagar: TDataSetProvider;
+    sdsContasPagar: TSQLDataSet;
+    sdsContasReceber: TSQLDataSet;
+    dspContasReceber: TDataSetProvider;
+    cdsContasReceber: TClientDataSet;
+    sdsPagamentoContas: TSQLDataSet;
+    dspPagamentoContas: TDataSetProvider;
+    cdsPagamentoContas: TClientDataSet;
+    cdsPagamentoContasNUMTITULO: TIntegerField;
+    cdsPagamentoContasDTCRIACAO: TDateField;
+    cdsPagamentoContasDTVENCIMENTO: TDateField;
+    cdsPagamentoContasVALORTITULO: TFMTBCDField;
+    cdsPagamentoContasVALORJUROS: TFMTBCDField;
+    cdsPagamentoContasVLJUROSCALCULADO: TFMTBCDField;
+    cdsPagamentoContasVALORDESCONTO: TFMTBCDField;
+    cdsPagamentoContasDTPAGAMENTO: TDateField;
+    cdsPagamentoContasVALORPAGO: TFMTBCDField;
+    cdsPagamentoContasTIPOTITULO: TStringField;
+    cdsPagamentoContasCNPJCPF: TStringField;
+    cdsPagamentoContasListPessoas: TStringField;
+    cdsContasPagarID: TIntegerField;
+    cdsContasPagarDTCRIACAO: TDateField;
+    cdsContasPagarDTVENCIMENTO: TDateField;
+    cdsContasPagarVALORTITULO: TFMTBCDField;
+    cdsContasPagarVALORJUROS: TFMTBCDField;
+    cdsContasPagarVLJUROSCALCULADO: TFMTBCDField;
+    cdsContasPagarVALORDESCONTO: TFMTBCDField;
+    cdsContasPagarDTPAGAMENTO: TDateField;
+    cdsContasPagarVALORPAGO: TFMTBCDField;
+    cdsContasPagarTIPOTITULO: TStringField;
+    cdsContasPagarCNPJCPF: TStringField;
+    cdsContasPagarNUMTITULO: TStringField;
+    cdsContasPagarListPessoas: TStringField;
+    cdsContasReceberID: TIntegerField;
+    cdsContasReceberDTCRIACAO: TDateField;
+    cdsContasReceberDTVENCIMENTO: TDateField;
+    cdsContasReceberVALORTITULO: TFMTBCDField;
+    cdsContasReceberVALORJUROS: TFMTBCDField;
+    cdsContasReceberVLJUROSCALCULADO: TFMTBCDField;
+    cdsContasReceberVALORDESCONTO: TFMTBCDField;
+    cdsContasReceberDTPAGAMENTO: TDateField;
+    cdsContasReceberVALORPAGO: TFMTBCDField;
+    cdsContasReceberTIPOTITULO: TStringField;
+    cdsContasReceberCNPJCPF: TStringField;
+    cdsContasReceberNUMTITULO: TStringField;
+    cdsContasReceberListPessoas: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+    procedure SetID(DataSet: TDataSet);
+    function GetID(Table: string): Integer;
+  public
+    { Public declarations }
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+uses
+  Dialogs;
+{$R *.dfm}
+{ TDM }
+
+procedure TDM.DataModuleCreate(Sender: TObject);
+var
+  I: Integer;
+begin
+  for I := 0 to ComponentCount - 1 do
+    if Components[I] is TClientDataSet then
+    begin
+      TClientDataSet(Components[I]).BeforePost := SetID;
+    end;
+
+end;
+
+function TDM.GetID(Table: String): Integer;
+var
+  SqlQuery: TSQLQuery;
+begin
+  SqlQuery := TSQLQuery.Create(Self);
+  SqlQuery.SQLConnection := SQLCon;
+  SqlQuery.SQL.Add('SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = ' + QuotedStr(Table));
+
+  SqlQuery.Open;
+
+  Result := SqlQuery.Fields[0].Value;
+end;
+
+procedure TDM.SetID(DataSet: TDataSet);
+begin
+  if DataSet.State in [dsInsert] then
+    if not StringOf(DataSet.ToString)  <> '' then
+      DataSet.Fields[0].Value := GetID('PESSOAS')
+    else
+      DataSet.Fields[0].Value := GetID('TITULOS');
+end;
+
+end.

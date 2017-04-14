@@ -1,0 +1,66 @@
+unit uFrmCPagar;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls, Mask, DBCtrls;
+
+type
+  TFrmContasPagar = class(TFrmBase)
+    cbPessoas: TComboBox;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    Label6: TLabel;
+    DBEdit6: TDBEdit;
+    gpPeriodo: TGroupBox;
+    Label8: TLabel;
+    Label9: TLabel;
+    edtPeriodoFinal: TMaskEdit;
+    edtPeriodoInicial: TMaskEdit;
+    Pesquisar: TButton;
+    procedure FormShow(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure PesquisarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmContasPagar: TFrmContasPagar;
+
+implementation
+
+uses uDM, uFuncoes;
+
+{$R *.dfm}
+
+procedure TFrmContasPagar.BtnSalvarClick(Sender: TObject);
+begin
+  ValidarInsercaoParaPagamento(DS, cbPessoas);
+  inherited;
+end;
+
+procedure TFrmContasPagar.FormShow(Sender: TObject);
+begin
+  inherited;
+  LoadListPessoas(cbPessoas);
+end;
+
+procedure TFrmContasPagar.PesquisarClick(Sender: TObject);
+begin
+  inherited;
+  PesquisaPorDataCriacao(DS, 'DTCRIACAO', edtPeriodoInicial.Text, edtPeriodoFinal.Text);
+end;
+
+end.

@@ -1,0 +1,84 @@
+unit uFrmPagamentoContas;
+
+interface
+
+uses
+  Windows, Messages, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls, Mask, DBCtrls;
+
+type
+  TFrmPagamentoContas = class(TFrmBase)
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    edtVencimento: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    Label6: TLabel;
+    DBEdit6: TDBEdit;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
+    Label8: TLabel;
+    edtPagamento: TDBEdit;
+    Label9: TLabel;
+    DBEdit9: TDBEdit;
+    Label10: TLabel;
+    DBEdit10: TDBEdit;
+    Label11: TLabel;
+    DBEdit11: TDBEdit;
+    Label12: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    procedure ACEditarExecute(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPagamentoContas: TFrmPagamentoContas;
+
+implementation
+
+uses uDM, SysUtils, uFuncoes;
+{$R *.dfm}
+
+procedure TFrmPagamentoContas.ACEditarExecute(Sender: TObject);
+begin
+
+  // Validação p/ que o usuario não consiga dar baixar em um título
+  // já pago
+  if DS.DataSet.FieldByName('VALORPAGO').IsNull then
+    inherited
+  else
+    ShowMessage('Título já possui baixa!');
+end;
+
+procedure TFrmPagamentoContas.BtnSalvarClick(Sender: TObject);
+var
+  DiasEmAtraso: Integer;
+  JurosCalculado: Double;
+begin
+  // Antes de Realizar o Post é feito o calculo de Juros:
+
+  // DiasEmAtraso recebe a quantidad de dias em atraso (DataVencimento - DataPagamento)
+  DiasEmAtraso := retornaDiasEmAtraso(DS.DataSet.FieldByName('DTPAGAMENTO').AsDateTime, DS.DataSet.FieldByName('DTVENCIMENTO').AsDateTime);
+
+  // Caso ele possua dias em atraso:
+  if DiasEmAtraso > 0 then
+  begin
+    // Calculo do Juros é feito, e o DataSet recebe o valor do Juros atualizado
+
+    JurosCalculado := calcularJuros(DS.DataSet.FieldByName('VALORJUROS').Value, DS.DataSet.FieldByName('VALORTITULO').Value, DiasEmAtraso);
+  end;
+  inherited;
+
+end;
+
+end.

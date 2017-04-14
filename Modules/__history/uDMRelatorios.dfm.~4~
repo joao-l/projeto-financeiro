@@ -1,0 +1,127 @@
+object DMRelatorios: TDMRelatorios
+  OldCreateOrder = False
+  Height = 437
+  Width = 563
+  object sdsContasReceber: TSQLDataSet
+    SchemaName = 'root'
+    CommandText = 
+      'SELECT '#13#10'  p.NOME, '#13#10'  p.DTNASCIMENTO, '#13#10'  p.CIDADE, '#13#10'  p.ESTAD' +
+      'O,'#13#10'  t.* '#13#10'FROM '#13#10' titulos t,'#13#10'  pessoas p '#13#10'WHERE t.TIPOTITULO' +
+      ' = '#39'R'#39' AND t.CNPJCPF = p.CNPJCPF;'
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DM.SQLCon
+    Left = 464
+    Top = 336
+  end
+  object dspContasReceber: TDataSetProvider
+    DataSet = sdsContasReceber
+    Left = 464
+    Top = 280
+  end
+  object cdsContasReceber: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspContasReceber'
+    Left = 464
+    Top = 232
+    object cdsContasReceberNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 125
+    end
+    object cdsContasReceberDTNASCIMENTO: TDateField
+      FieldName = 'DTNASCIMENTO'
+    end
+    object cdsContasReceberCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 45
+    end
+    object cdsContasReceberESTADO: TStringField
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+    object cdsContasReceberID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object cdsContasReceberDTCRIACAO: TDateField
+      FieldName = 'DTCRIACAO'
+    end
+    object cdsContasReceberDTVENCIMENTO: TDateField
+      FieldName = 'DTVENCIMENTO'
+    end
+    object cdsContasReceberVALORTITULO: TFMTBCDField
+      FieldName = 'VALORTITULO'
+      Required = True
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberVALORJUROS: TFMTBCDField
+      FieldName = 'VALORJUROS'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberVLJUROSCALCULADO: TFMTBCDField
+      FieldName = 'VLJUROSCALCULADO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberVALORDESCONTO: TFMTBCDField
+      FieldName = 'VALORDESCONTO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberDTPAGAMENTO: TDateField
+      FieldName = 'DTPAGAMENTO'
+    end
+    object cdsContasReceberVALORPAGO: TFMTBCDField
+      FieldName = 'VALORPAGO'
+      Precision = 12
+      Size = 2
+    end
+    object cdsContasReceberTIPOTITULO: TStringField
+      FieldName = 'TIPOTITULO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object cdsContasReceberCNPJCPF: TStringField
+      FieldName = 'CNPJCPF'
+      Required = True
+    end
+    object cdsContasReceberNUMTITULO: TStringField
+      FieldName = 'NUMTITULO'
+      Size = 45
+    end
+  end
+  object rvDSConnectionContasReceber: TRvDataSetConnection
+    RuntimeVisibility = rtDeveloper
+    DataSet = cdsContasReceber
+    Left = 464
+    Top = 192
+  end
+  object RvRelatorios: TRvProject
+    ProjectFile = 
+      'C:\Users\User001\Downloads\Financeiro\App\bin\Relatorio\Projeto.' +
+      'rav'
+    Left = 16
+    Top = 16
+  end
+  object RvSystem1: TRvSystem
+    TitleSetup = 'Output Options'
+    TitleStatus = 'Report Status'
+    TitlePreview = 'Report Preview'
+    SystemFiler.StatusFormat = 'Generating page %p'
+    SystemPreview.ZoomFactor = 100.000000000000000000
+    SystemPrinter.ScaleX = 100.000000000000000000
+    SystemPrinter.ScaleY = 100.000000000000000000
+    SystemPrinter.StatusFormat = 'Printing page %p'
+    SystemPrinter.Title = 'Rave Report'
+    SystemPrinter.UnitsFactor = 1.000000000000000000
+    Left = 80
+    Top = 16
+  end
+end

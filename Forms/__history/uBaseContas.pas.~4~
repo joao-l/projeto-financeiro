@@ -1,0 +1,181 @@
+unit uBaseContas;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, ImgList, ActnList, StdCtrls, ComCtrls, Grids, DBGrids, DB,
+  Buttons, DBClient, Validar;
+
+type
+  TFrmBaseContas = class(TForm)
+    Panel1: TPanel;
+    BtnNovo: TButton;
+    aclComandos: TActionList;
+    ImgAcoes: TImageList;
+    ACNovo: TAction;
+    ACEditar: TAction;
+    ACApagar: TAction;
+    ACSair: TAction;
+    BtnApagar: TButton;
+    BtnSair: TButton;
+    StatusInfo: TStatusBar;
+    DBGDados: TDBGrid;
+    BtnSalvar: TSpeedButton;
+    BtnCancelar: TSpeedButton;
+    PNDados: TPanel;
+    DS: TDataSource;
+    Validar: TValidar;
+    procedure ACNovoExecute(Sender: TObject);
+    procedure ACEditarExecute(Sender: TObject);
+    procedure ACApagarExecute(Sender: TObject);
+    procedure ACSairExecute(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    procedure Acao(Tipo: String);
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmBaseContas: TFrmBaseContas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmBaseContas.Acao(Tipo: String);
+begin
+  if Tipo = 'Read' then
+  begin
+    BtnNovo.Enabled := True;
+    BtnEditar.Enabled := True;
+    BtnApagar.Enabled := True;
+    BtnSalvar.Enabled := False;
+    BtnCancelar.Enabled := False;
+    DBGDados.Enabled := True;
+    PNDados.Enabled := False;
+
+    StatusInfo.Panels[0].Text := ' ' + IntToStr(DS.DataSet.RecordCount) + ' Registros cadastrado';
+  end;
+
+  if Tipo = 'New' then
+  begin
+    DS.DataSet.Insert;
+    BtnNovo.Enabled := False;
+    BtnEditar.Enabled := False;
+    BtnApagar.Enabled := False;
+    BtnSalvar.Enabled := True;
+    BtnCancelar.Enabled := True;
+    DBGDados.Enabled := False;
+    PNDados.Enabled := True;
+  end;
+
+  if Tipo = 'Edit' then
+  begin
+    if not DS.DataSet.IsEmpty then
+    begin
+      DS.DataSet.Edit;
+      BtnNovo.Enabled := False;
+      BtnEditar.Enabled := False;
+      BtnApagar.Enabled := False;
+      BtnSalvar.Enabled := True;
+      BtnCancelar.Enabled := True;
+      DBGDados.Enabled := False;
+      PNDados.Enabled := True;
+    end;
+  end;
+
+  if Tipo = 'Delete' then
+  begin
+    if not DS.DataSet.IsEmpty then
+    begin
+      if Application.MessageBox('Deseja apagar este registro?', 'Exclusão',MB_ICONQUESTION + MB_YESNO + MB_DEFBUTTON1) = ID_YES then
+      begin
+        try
+          DS.DataSet.Delete; (DS.DataSet as TClientDataSet).ApplyUpdates(0);
+          Application.MessageBox('Regsitro deletado com sucesso!', 'Exclusão',MB_ICONINFORMATION + MB_OK);
+          Acao('Read');
+        Except
+          Application.MessageBox('Erro ao excluir!', 'Exclusão',MB_ICONERROR + MB_OK);
+        end;
+      end;
+    end;
+  end;
+
+  if Tipo = 'Save' then
+  begin
+    if Validar.Validar then
+    begin
+      BtnNovo.Enabled := True;
+      BtnEditar.Enabled := True;
+      BtnApagar.Enabled := True;
+      BtnSalvar.Enabled := False;
+      BtnCancelar.Enabled := False;
+      DBGDados.Enabled := True;
+      PNDados.Enabled := False;
+
+      if DS.DataSet.State in [dsInsert] then
+      begin
+        try
+          DS.DataSet.Post; (DS.DataSet as TClientDataSet).ApplyUpdates(0);
+          Application.MessageBox('Registro cadastrado com sucesso!','Cadastro', MB_ICONINFORMATION + MB_OK);
+        except
+          Application.MessageBox('Erro ao cadastrar!', 'Erro',MB_ICONERROR + MB_OK);
+        end;
+      end
+      else
+        try
+          DS.DataSet.Post; (DS.DataSet as TClientDataSet).ApplyUpdates(0);
+          Application.MessageBox('Registro editado com sucesso!', 'Cadastro',MB_ICONINFORMATION + MB_OK);
+        except
+          Application.MessageBox('Erro ao editar!', 'Erro',MB_ICONERROR + MB_OK);
+        end;
+    end;
+  end;
+
+  if Tipo = 'Cancel' then
+  begin (DS.DataSet as TClientDataSet).CancelUpdates;
+    Acao('Read');
+  end;
+end;
+
+procedure TFrmBase.ACApagarExecute(Sender: TObject);
+begin
+  Acao('Delete');
+end;
+
+procedure TFrmBase.ACEditarExecute(Sender: TObject);
+begin
+  Acao('Edit');
+end;
+
+procedure TFrmBase.ACNovoExecute(Sender: TObject);
+begin
+  Acao('New');
+end;
+
+procedure TFrmBase.ACSairExecute(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmBase.BtnCancelarClick(Sender: TObject);
+begin
+  Acao('Cancel');
+end;
+
+procedure TFrmBase.BtnSalvarClick(Sender: TObject);
+begin
+  Acao('Save');
+end;
+
+procedure TFrmBase.FormShow(Sender: TObject);
+begin
+  Acao('Read');
+end;
+
+end.

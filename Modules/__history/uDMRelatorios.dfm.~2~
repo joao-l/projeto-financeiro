@@ -1,0 +1,46 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 437
+  Width = 563
+  object sdsContasReceber: TSQLDataSet
+    DbxCommandType = 'Dbx.SQL'
+    Params = <>
+    Left = 88
+    Top = 56
+  end
+  object dspContasReceber: TDataSetProvider
+    DataSet = sdsContasReceber
+    Left = 192
+    Top = 56
+  end
+  object cdsContasReceber: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspContasReceber'
+    Left = 296
+    Top = 56
+  end
+  object RvDataSetConnection1: TRvDataSetConnection
+    RuntimeVisibility = rtDeveloper
+    Left = 88
+    Top = 144
+  end
+  object RvProject1: TRvProject
+    Left = 192
+    Top = 144
+  end
+  object RvSystem1: TRvSystem
+    TitleSetup = 'Output Options'
+    TitleStatus = 'Report Status'
+    TitlePreview = 'Report Preview'
+    SystemFiler.StatusFormat = 'Generating page %p'
+    SystemPreview.ZoomFactor = 100.000000000000000000
+    SystemPrinter.ScaleX = 100.000000000000000000
+    SystemPrinter.ScaleY = 100.000000000000000000
+    SystemPrinter.StatusFormat = 'Printing page %p'
+    SystemPrinter.Title = 'Rave Report'
+    SystemPrinter.UnitsFactor = 1.000000000000000000
+    Left = 280
+    Top = 144
+  end
+end

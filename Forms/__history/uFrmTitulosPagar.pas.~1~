@@ -1,0 +1,39 @@
+unit uFrmTitulos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uBase, Validar, DB, ImgList, ActnList, Buttons, Grids, DBGrids,
+  ComCtrls, StdCtrls, ExtCtrls, Mask, DBCtrls;
+
+type
+  TFrmTitulosPagar = class(TFrmBase)
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label6: TLabel;
+    DBEdit6: TDBEdit;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmTitulosPagar: TFrmTitulosPagar;
+
+implementation
+
+uses uDM;
+
+{$R *.dfm}
+
+end.
